@@ -9,4 +9,11 @@ public interface IRangerDao {
 	 * @return
 	 */
 	List<String> getRangers();
+
+	/**
+	 * listIndex에 해당하는 레인저 이름을 반환
+	 * @param listIndex
+	 * @return
+	 */
+	String getRanger(int listIndex);
 }

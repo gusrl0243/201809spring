@@ -1,4 +1,4 @@
-package springkr.or.ddit.ioc;
+package kr.or.ddit.ioc;
 
 import java.util.List;
 

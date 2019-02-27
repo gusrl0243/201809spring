@@ -2,6 +2,8 @@ package kr.or.ddit.ranger.service;
 
 import java.util.List;
 
+import kr.or.ddit.ranger.dao.IRangerDao;
+
 public interface IRangerService {
 
 	/**
@@ -9,4 +11,8 @@ public interface IRangerService {
 	 * @return
 	 */
 	List<String> getRangers();
+	
+	IRangerDao getRangerDao();
+
+	String getRanger(int index);
 }
