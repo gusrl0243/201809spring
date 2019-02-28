@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="kr/or/ddit/config/db/db.properties"/>
+  
+  <typeAliases>
+     <typeAlias type="kr.or.ddit.user.model.UserVo" alias="userVo"/>
+<!--      <typeAlias type="kr.or.ddit.lprod.model.LprodVo" alias="lprodVo"/> -->
+<!--      <typeAlias type="kr.or.ddit.prod.model.ProdVo" alias="prodVo"/> -->
+     <typeAlias type="kr.or.ddit.util.model.PageVo" alias="pageVo"/>
+<!--      <typeAlias type="kr.or.ddit.country.model.CountryVo" alias="countryVo"/> -->
+  </typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="kr/or/ddit/config/db/mapper/user.xml"/>
+<!--     <mapper resource="kr/or/ddit/db/mybatis/mapper/lprod.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/db/mybatis/mapper/country.xml"/> -->
+  </mappers>
+</configuration>
