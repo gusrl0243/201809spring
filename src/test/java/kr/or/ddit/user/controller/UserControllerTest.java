@@ -60,4 +60,25 @@ public class UserControllerTest extends WebTestConfig{
 	
 	}
 	
+	/**
+	 * 사용자 상세 조회 테스트
+	 */
+	@Test
+	public void testUser() throws Exception{
+		MvcResult mvcResult = mockMvc.perform(get("/user/user").param("userId", "brown")).andReturn();
+		
+		ModelAndView mav = mvcResult.getModelAndView();
+		String viewName = mav.getViewName();
+		UserVo userVo = (UserVo)mav.getModel().get("userVo");
+		
+		assertEquals("user/user", viewName);
+		assertNotNull(userVo);
+		assertEquals("brown", userVo.getUserId());
+		assertEquals("브라운", userVo.getUserNm());
+		
+	}
+	
+	//@Test
+	//public void testProfileImg(){}
+	
 }
