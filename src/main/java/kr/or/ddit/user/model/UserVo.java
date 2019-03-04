@@ -29,7 +29,7 @@ public class UserVo implements HttpSessionBindingListener{
    // reg_dt 값을 yyyy-MM-dd로 포맷팅
    public String getReg_dt_fmt() {
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      return sdf.format(reg_dt);
+      return reg_dt != null ? sdf.format(reg_dt) : "";
    }
 
    public UserVo(String userId, String userNm, String alias, String addr1,
