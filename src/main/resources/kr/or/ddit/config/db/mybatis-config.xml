@@ -7,8 +7,8 @@
   
   <typeAliases>
      <typeAlias type="kr.or.ddit.user.model.UserVo" alias="userVo"/>
-<!--      <typeAlias type="kr.or.ddit.lprod.model.LprodVo" alias="lprodVo"/> -->
-<!--      <typeAlias type="kr.or.ddit.prod.model.ProdVo" alias="prodVo"/> -->
+     <typeAlias type="kr.or.ddit.lprod.model.LprodVo" alias="lprodVo"/>
+     <typeAlias type="kr.or.ddit.prod.model.ProdVo" alias="prodVo"/>
      <typeAlias type="kr.or.ddit.util.model.PageVo" alias="pageVo"/>
 <!--      <typeAlias type="kr.or.ddit.country.model.CountryVo" alias="countryVo"/> -->
   </typeAliases>
@@ -26,7 +26,9 @@
   </environments>
   <mappers>
     <mapper resource="kr/or/ddit/config/db/mapper/user.xml"/>
-<!--     <mapper resource="kr/or/ddit/db/mybatis/mapper/lprod.xml"/> -->
+    <mapper resource="kr/or/ddit/config/db/mapper/lprod.xml"/>
+    <mapper resource="kr/or/ddit/config/db/mapper/prod.xml"/>
+   
 <!--     <mapper resource="kr/or/ddit/db/mybatis/mapper/country.xml"/> -->
   </mappers>
 </configuration>

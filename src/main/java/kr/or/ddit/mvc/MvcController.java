@@ -56,7 +56,7 @@ public class MvcController {
 		}
 		
 		
-		return "/mvc/view";
+		return "mvc/view";
 	}
 	
 	
