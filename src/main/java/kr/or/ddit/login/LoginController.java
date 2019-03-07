@@ -42,7 +42,7 @@ public class LoginController {
 
 		// 정상 로그인
 		if (dbUserVo.getUserId().equals(userVo.getUserId())
-				&& dbUserVo.getPass().equals(KISA_SHA256.encrypt(userVo.getPass()))) {
+				&& dbUserVo.getPass().equals(userVo.getPass())) {
 			session.setAttribute("userVo", dbUserVo);
 
 			return "main";

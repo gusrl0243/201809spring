@@ -102,7 +102,7 @@
 		});
 	</script>	
 
-<form id="frm" action="${pageContext.servletContext.contextPath }/user" method="get">
+<form id="frm" action="${pageContext.servletContext.contextPath }/user/user" method="get">
 	<input type="hidden" id="userId" name="userId"/>
 </form>
 
