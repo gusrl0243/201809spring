@@ -48,7 +48,8 @@ public class UserController {
 
 		model.addAttribute("userList", userList);
 
-		return "user/userAllList";
+		//return "user/userAllList";
+		return "userAllListTiles";
 	}
 
 	
@@ -67,15 +68,21 @@ public class UserController {
 		model.addAttribute("pageSize",pageVo.getPageSize());
 		model.addAttribute("page",pageVo.getPage());
 
-		return "user/userPagingList";
+		return "userPagingListTiles";
 	}
 	
+	/**
+	 * 사용자 상세정보
+	 * @param userId
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(path="/user", method=RequestMethod.GET)
 	public String user(@RequestParam("userId")String userId,Model model){
 		
 		UserVo userVo = userService.selectUser(userId);
 		model.addAttribute("userVo",userVo);
-		return "user/user";
+		return "userTiles";
 	}
 	
 	@RequestMapping("/profileImg")
