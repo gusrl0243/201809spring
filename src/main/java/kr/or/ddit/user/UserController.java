@@ -72,6 +72,52 @@ public class UserController {
 	}
 	
 	/**
+	 * 사용자 페이징 리스트 view
+	 * @return
+	 */
+	@RequestMapping("/userPagingListAjaxView")
+	public String userPagingListAjaxView() {
+		return "userPagingListAjaxTiles";
+	}
+	
+	/**
+	 * 사용자 페이지 리스트 ajax 요청처리
+	 * @param pageVo
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/userPagingListAjax")
+	public String userPagingListAjax(PageVo pageVo, Model model) {
+
+		Map<String, Object> resultMap = userService.selectUserPagingList(pageVo);
+
+		model.addAllAttributes(resultMap);
+		model.addAttribute("pageSize",pageVo.getPageSize());
+		model.addAttribute("page",pageVo.getPage());
+		//userList, userCnt, pageSize, page
+		//{
+		//  userList : [{userId : 'brown', userNm : '브라운'}......{userId : 'sally', userNm : '샐리'}
+		//  userCnt : "110",
+		//  pageSize : "10";
+		//  page : "2"
+		//}
+
+		return "jsonView";
+	}
+	
+	@RequestMapping("/userPagingListAjaxHtml")
+	public String userPagingListAjaxHtml(PageVo pageVo, Model model) {
+
+		Map<String, Object> resultMap = userService.selectUserPagingList(pageVo);
+
+		model.addAllAttributes(resultMap);
+		model.addAttribute("pageSize",pageVo.getPageSize());
+		model.addAttribute("page",pageVo.getPage());
+
+		return "user/userPagingListAjaxHtml";
+	}
+	
+	/**
 	 * 사용자 상세정보
 	 * @param userId
 	 * @param model
