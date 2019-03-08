@@ -17,7 +17,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 전체 사용자 조회.
     */
-   List<UserVo> getAllUser(SqlSession sqlSession);
+   List<UserVo> getAllUser();
    
    /**
     * 
@@ -27,7 +27,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 특정 사용자 조회.
     */
-   UserVo selectUser(SqlSession sqlSession, String userId);
+   UserVo selectUser( String userId);
    
    /**
     * 
@@ -39,7 +39,7 @@ public interface IUserDao {
     * Method 설명 : 사용자 페이징 리스트 조회.
     * a;sldkfjlksdjflksdjfsdjfoiasjdfo;ijaweoifjaowiejfsidjfklsdjfzmxcvn,mxzcnvlsdjfl;jsdifojsdlkfjoisdjvmzxcnmv,nz,mxcz,xcmvn,mzxcvnmxcvoskdjflksjdflkopwiejfmzxvnlmsdnflksjdfkjioejfslnvmlsdfjiejfkldjvklsdnvoisdjfiosdjfkzldnvkl
     */
-   List<UserVo> selectUserPagingList(SqlSession sqlSession, PageVo pageVo);
+   List<UserVo> selectUserPagingList( PageVo pageVo);
    
    /**
     * 
@@ -49,7 +49,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 전체 사용자 수를 조회.
     */
-   int getUserCnt(SqlSession sqlSession);
+   int getUserCnt();
    
    /**
     * 
@@ -59,7 +59,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 사용자 등록.
     */
-   int insertUser(SqlSession sqlSession, UserVo userVo);
+   int insertUser( UserVo userVo);
    
    /**
     * 
@@ -70,7 +70,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 사용자 삭제.
     */
-   int deleteUser(SqlSession sqlSession, String userId);
+   int deleteUser( String userId);
    
    /**
     * 
@@ -82,7 +82,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 사용자 정보 수정.
     */
-   int updateUser(SqlSession sqlSession, UserVo userVo);
+   int updateUser(UserVo userVo);
 
    /**
     * 
@@ -94,7 +94,7 @@ public interface IUserDao {
     * @return
     * Method 설명 : 사용자 비밀번호 수정.
     */
-   int updateUserPass(SqlSession sqlSession, UserVo userVo);
+   int updateUserPass(UserVo userVo);
    
 }
 

@@ -23,7 +23,7 @@ public class UserDaoImplTest extends LogicTestConfig{
 
    @Resource(name="userDao")
    private IUserDao userDao;
-   private SqlSession sqlSession;
+
    
    // @Before - @Test - @After
    
@@ -31,15 +31,12 @@ public class UserDaoImplTest extends LogicTestConfig{
    public void setup(){
       //userDao = new UserDaoImpl();
       
-      SqlSessionFactory sqlSessionFactory = MybatisSqlSessionFactory.getSqlSessionFactory();
-      sqlSession = sqlSessionFactory.openSession();
-      
-      userDao.deleteUser(sqlSession, "test11");
+      userDao.deleteUser( "test11");
    }
    
    @After
    public void tearDown(){
-      sqlSession.close();
+
    }
    
    
@@ -49,7 +46,7 @@ public class UserDaoImplTest extends LogicTestConfig{
       /***Given***/
       
       /***When***/
-      List<UserVo> userList = userDao.getAllUser(sqlSession);
+      List<UserVo> userList = userDao.getAllUser();
 //      for(UserVo userVo : userList){
 //         System.out.println(userVo);
 //      }
@@ -66,7 +63,7 @@ public class UserDaoImplTest extends LogicTestConfig{
       /***Given***/
       
       /***When***/
-      UserVo user = userDao.selectUser(sqlSession, "brown");
+      UserVo user = userDao.selectUser("brown");
       System.out.println("user : " + user);
       
       /***Then***/
@@ -87,7 +84,7 @@ public class UserDaoImplTest extends LogicTestConfig{
       PageVo pageVo = new PageVo(1, 10);
       
       /***When***/
-      List<UserVo> userList = userDao.selectUserPagingList(sqlSession, pageVo);
+      List<UserVo> userList = userDao.selectUserPagingList(pageVo);
 //      for(UserVo user : userList){
 //         System.out.println("page : " + user);
 //      }
@@ -110,7 +107,7 @@ public class UserDaoImplTest extends LogicTestConfig{
       /***Given***/
       
       /***When***/
-      int userCnt = userDao.getUserCnt(sqlSession);
+      int userCnt = userDao.getUserCnt();
       System.out.println("userCnt : " + userCnt);
 
       /***Then***/
@@ -165,7 +162,7 @@ public class UserDaoImplTest extends LogicTestConfig{
       
       
       /***When***/
-      int insertCnt = userDao.insertUser(sqlSession, userVo); 
+      int insertCnt = userDao.insertUser(userVo); 
       System.out.println(insertCnt);
       
       /***Then***/
@@ -180,7 +177,7 @@ public class UserDaoImplTest extends LogicTestConfig{
       UserVo userVo = new UserVo("1111", "2222", "2222", "2222", "2222", "2222", "2222");
       
       /***When***/
-      int updateCnt = userDao.updateUser(sqlSession, userVo);
+      int updateCnt = userDao.updateUser(userVo);
 
       /***Then***/
       assertEquals(updateCnt, 1);
