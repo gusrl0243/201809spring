@@ -144,6 +144,15 @@
 			
 			$("#userListTbody").html(htmlArr[0]);
 			$("#pagination").html(htmlArr[1]);
+        
+        // * ajax를 통한 html 생성시 이벤트 핸들러 등록 방법 2.
+        // ajax callback 안에 클릭 이벤트를 넣어줌.
+		        $(".userTr").on("click", function(){
+		           var userId = $(this).data("userid");
+		           
+		           $("#userId").val(userId);
+		           $("#frm").submit();
+		        });
 			}
 		});
 		
@@ -162,24 +171,18 @@
 			</c:if>
 			
 
-			//사용자 tr 태그 클릭시 이벤트 핸들러
-			$(".userTr").on("click", function() {
-				console.log("userTr click");
-				//클릭한 userTr태그의 userId 값을 출력
-				// 				var userId = $(this).children()[1].innerText;
-				// 				console.log("userId : " + userId);
-
-				var userId = $(this).data("userid");
-
-				// /user
-				// 1. docuemnt
-				//document.location = "/user?userId=" + userId;
-
-				// 2. form
-				$("#userId").val(userId);
-				//$("#frm").attr("action", "/userAllList");
-				$("#frm").submit();
-			});
+	         // * ajax를 통한 html 생성시 이벤트 핸들러 등록 방법 두가지.
+	         // 1. html이 ajax호출에 의해 정상적으로 생성된이후 클릭 이벤트 핸들러를 등록.
+	         // (success -> 사용자 html이 생성된 이후에 등록)
+	         // 2. 이벤트 핸들러 대상을 변경.(.userTr -> #userListTbody) 동적으로 생성되는
+	         // html을 감싸는 영역에 이벤트를 등록. 단, on 옵션에서 감싸는 영역 안에 처리되어야
+	         // 할 selector를 명시. (기존 : $(".userTr").on("click", function(){))
+	         $("#userListTbody").on("click", ".userTr", function(){
+	            var userId = $(this).data("userid");
+	            
+	            $("#userId").val(userId);
+	            $("#frm").submit();
+	         });
 		});
 	</script>
 
