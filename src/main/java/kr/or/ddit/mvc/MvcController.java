@@ -36,7 +36,7 @@ public class MvcController {
 	private Logger logger = LoggerFactory.getLogger(UserVo.class);
 
 	/**
-	 * part¸¦ Å×½ºÆ® ÇÒ view ¿äÃ»
+	 * partë¥¼ í…ŒìŠ¤íŠ¸ í•  view ìš”ì²­
 	 * 
 	 * @return
 	 */
@@ -46,11 +46,11 @@ public class MvcController {
 	}
 
 	/**
-	 * fileupload Ã³¸® ¿äÃ» Å×½ºÆ®
+	 * fileupload ì²˜ë¦¬ ìš”ì²­ í…ŒìŠ¤íŠ¸
 	 * 
 	 * @return
 	 */
-	// ÆÄ¶ó¹ÌÅÍ : userId (text), profile (file)
+	// íŒŒë¼ë¯¸í„° : userId (text), profile (file)
 	@RequestMapping("/mvc/fileupload")
 	public String fileupload(@RequestParam("userId") String userId,
 			@RequestPart("profile") MultipartFile multipartFile) {
@@ -78,11 +78,11 @@ public class MvcController {
 		return "mvc/textView";
 	}
 
-	// @RequestParam ¾î³ëÅ×ÀÌ¼ÇÀ» Àû¿ëÇÏÁö ¾Ê¾Æµµ ÀÎ½ºÅÏ½º¸íÀÌ¶û µ¿ÀÏÇÏ¸é ¹ÙÀÎµù µÊ.
-	// ÆÄ¶ó¹ÌÅÍ¸íÀÌ¶û ÀÎ½ºÅÏ½º ¸íÀÌ¶û ´Ù¸¦ °æ¿ì -> @RequestParam
+	// @RequestParam ì–´ë…¸í…Œì´ì…˜ì„ ì ìš©í•˜ì§€ ì•Šì•„ë„ ì¸ìŠ¤í„´ìŠ¤ëª…ì´ë‘ ë™ì¼í•˜ë©´ ë°”ì¸ë”© ë¨.
+	// íŒŒë¼ë¯¸í„°ëª…ì´ë‘ ì¸ìŠ¤í„´ìŠ¤ ëª…ì´ë‘ ë‹¤ë¥¼ ê²½ìš° -> @RequestParam
 
-	// BindingResult°´Ã¼´Â command°´Ã¼(vo)¿¡ ¹ÙÀÎµù °úÁ¤¿¡¼­ ¹ß»ıÇÑ °á°ú¸¦ ´ã´Â °´Ã¼·Î ¹İµå½Ã
-	// command°´Ã¼ ¸Ş¼­µå ÀÎÀÚ µÚ¿¡ À§Ä¡ ÇØ¾ßÇÑ´Ù.
+	// BindingResultê°ì²´ëŠ” commandê°ì²´(vo)ì— ë°”ì¸ë”© ê³¼ì •ì—ì„œ ë°œìƒí•œ ê²°ê³¼ë¥¼ ë‹´ëŠ” ê°ì²´ë¡œ ë°˜ë“œì‹œ
+	// commandê°ì²´ ë©”ì„œë“œ ì¸ì ë’¤ì— ìœ„ì¹˜ í•´ì•¼í•œë‹¤.
 	// (UserVo userVo, BindingResult result, Model model) (O)
 	// (UserVo userVo, Model model, BindingResult result) (X)
 	@RequestMapping("/textReq")
@@ -100,9 +100,9 @@ public class MvcController {
 			return "mvc/textView";
 		}
 
-		// pass : 8ÀÚ¸® ÀÌ»ó
+		// pass : 8ìë¦¬ ì´ìƒ
 		// if(userVo.getPass().length() < 8){
-		// model.addAttribute("passwordLengthMsg", "ºñ¹Ğ¹øÈ£´Â 8ÀÚ¸® ÀÌ»óÀÌ¾î¾ß ÇÕ´Ï´Ù.");
+		// model.addAttribute("passwordLengthMsg", "ë¹„ë°€ë²ˆí˜¸ëŠ” 8ìë¦¬ ì´ìƒì´ì–´ì•¼ í•©ë‹ˆë‹¤.");
 		// }
 
 		return "mvc/textView";
@@ -128,7 +128,7 @@ public class MvcController {
 	}
 
 	/**
-	 * arithmetic ¿¹¿Ü °­Á¦ ¹ß»ı
+	 * arithmetic ì˜ˆì™¸ ê°•ì œ ë°œìƒ
 	 * 
 	 * @return
 	 */
@@ -194,17 +194,22 @@ public class MvcController {
 	@RequestMapping("/helloTiles")
 	public String helloTiles(){
 		//1.BeanNameViewResolver
-		// hellotTiles()¿¡¼­ ¸®ÅÏÇÏ´Â ¹®ÀÚ¿­¿¡ ÇØ´çÇÏ´Â
-		// bean id¸¦ °®´Â ½ºÇÁ¸µ ºóÀÌ ÀÖ´ÂÁö È®ÀÎ
-		//	 ÀÖÀ¸¸é -> ÇØ´ç ½ºÇÁ¸µ °´Ã¼¸¦ »ç¿ëÇÏ¿© ÀÀ´äÀÌ Àü´Ş
-		// 	 ¾øÀ¸¸é -> ´ÙÀ½ view Resolver¿¡¼­ Ã³¸®
+		// hellotTiles()ì—ì„œ ë¦¬í„´í•˜ëŠ” ë¬¸ìì—´ì— í•´ë‹¹í•˜ëŠ”
+		// bean idë¥¼ ê°–ëŠ” ìŠ¤í”„ë§ ë¹ˆì´ ìˆëŠ”ì§€ í™•ì¸
+		//	 ìˆìœ¼ë©´ -> í•´ë‹¹ ìŠ¤í”„ë§ ê°ì²´ë¥¼ ì‚¬ìš©í•˜ì—¬ ì‘ë‹µì´ ì „ë‹¬
+		// 	 ì—†ìœ¼ë©´ -> ë‹¤ìŒ view Resolverì—ì„œ ì²˜ë¦¬
 		//2.TilesViewResolver
-		//   helloTiles()¿¡¼­ ¸®ÅÏÇÏ´Â ¹®ÀÚ¿­ÀÌ
-		//   tilesConfigurer¿¡ ¼³Á¤ÇÑ Å¸ÀÏÁî ¼³Á¤ ÆÄÀÏÀÇ definition ÀÌ¸§(name)°ú µ¿ÀÏÇÑ
-		//   ¼±¾ğÀÌ ÀÖ´ÂÁö È®ÀÎ
-		//      ÀÖÀ¸¸é -> ÇØ´ç tiles ¼³Á¤ÇÏ´ë·Î(layout extedns) ÀÀ´ä »ı¼º
-		//      ¾øÀ¸¸é -> ´ÙÀ½ view Resolver¿¡¼­ Ã³¸®
+		//   helloTiles()ì—ì„œ ë¦¬í„´í•˜ëŠ” ë¬¸ìì—´ì´
+		//   tilesConfigurerì— ì„¤ì •í•œ íƒ€ì¼ì¦ˆ ì„¤ì • íŒŒì¼ì˜ definition ì´ë¦„(name)ê³¼ ë™ì¼í•œ
+		//   ì„ ì–¸ì´ ìˆëŠ”ì§€ í™•ì¸
+		//      ìˆìœ¼ë©´ -> í•´ë‹¹ tiles ì„¤ì •í•˜ëŒ€ë¡œ(layout extedns) ì‘ë‹µ ìƒì„±
+		//      ì—†ìœ¼ë©´ -> ë‹¤ìŒ view Resolverì—ì„œ ì²˜ë¦¬
 		
 		return "helloTiles";
+	}
+	
+	@RequestMapping("/msgView")
+	public String msgView(){
+		return "mvc/msgView";
 	}
 }
